@@ -19,3 +19,13 @@ export type filterDefinition = {
     type: filterType,
     conditions: condition[],
 }
+export type filteredDefinition = {
+    key: string,
+    name: string,
+    values?: string[] | ((selection?: filterResult[]) => string[] | number[]),
+    type: filterType,
+    conditions: condition[],
+    condition: string,
+    value: string | number,
+    precondition: string
+}

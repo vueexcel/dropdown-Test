@@ -1,6 +1,6 @@
 <template>
   <div>
-    <filter-result :list="availableFilters"></filter-result>
+    <filter-result :list="availableFilters" @onUpdate="onFilterUpdate"></filter-result>
   </div>
 </template>
 

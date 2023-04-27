@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
+import {BootstrapIconsPlugin} from 'bootstrap-icons-vue'
 
 createApp(App).directive('click-outside', {
     mounted(el: any, binding: any) {
@@ -15,4 +16,4 @@ createApp(App).directive('click-outside', {
     unmounted(el: any) {
         document.body.removeEventListener('click', el.clickOutsideEvent);
     }
-}).mount('#app')
+}).use(BootstrapIconsPlugin).mount('#app')

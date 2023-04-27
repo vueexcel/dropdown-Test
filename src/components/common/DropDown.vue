@@ -1,6 +1,7 @@
 <template>
   <select
     class="filterDropDownList form-select form-select-sm mb-3"
+    :class="isCondition ? 'width' : ''"
     aria-label=".form-select-lg example"
     v-model="valueSelected"
     @change="emitEvent"
@@ -15,19 +16,25 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  props: ["item", "isList"],
+  props: ["item", "isList", "modalValue", "index", "valueToUpdate", "isCondition"],
   data() {
     return {
-        valueSelected: "Select"
+        valueSelected: this.modalValue || "Select"
     };
   },
   methods: {
     emitEvent(event: any) {
-        this.$emit('addFilter', event.target.value)
+        this.$emit('performTask', {value: event.target.value, index: this.index, update: this.valueToUpdate})
     }
   }
 });
 </script>
 
-<style>
+<style scoped>
+.filterDropDownList {
+  width: 134px;
+}
+.width {
+  width: 80px;
+}
 </style>
