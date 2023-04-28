@@ -20,6 +20,7 @@ export type filterDefinition = {
     conditions: condition[],
 }
 export type filteredDefinition = {
+    id: string,
     key: string,
     name: string,
     values?: string[] | ((selection?: filterResult[]) => string[] | number[]),
